@@ -19,7 +19,7 @@ export function IconBox({icon,size=22,link,title,hideTitleOnMobile=false,badge=0
       span.push(  <span key={i} className={`path${i}`}></span>)
     }
     return (
-        <Link className={linkClassName} href={link ?? '#'}>
+        <Link className={`flex items-center cursor-pointer ${linkClassName}`} href={link ?? '#'}>
             {
                 badge ?
                     <div className="relative">
@@ -32,7 +32,7 @@ export function IconBox({icon,size=22,link,title,hideTitleOnMobile=false,badge=0
                     <i className={`${icon} text-[${size}px]`}>{span}</i>
             }
 
-            {title && <div className={`${hideTitleOnMobile ? 'hidden xl:inline-block' : 'inline-block'} ${titleClassName}`}>{title}</div>}
+            {title && <div className={`ml-1 ${hideTitleOnMobile ? 'hidden xl:inline-block' : 'inline-block'} ${titleClassName}`}>{title}</div>}
         </Link>
     )
 }
