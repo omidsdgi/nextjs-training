@@ -1,10 +1,10 @@
+import {Section} from "@/components";
 
 
 export default function Home() {
-  return (
-
-
-          <h2>this is index</h2>
-
+  return(
+      <Section className={"container mb-[78px]"}>
+ OMID
+      </Section>
   )
 }
