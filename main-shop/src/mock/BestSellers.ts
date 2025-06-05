@@ -45,11 +45,11 @@ export const BestSellers =  [
         rate:'4.0',
         weight:'500',
         unit:'gram',
-        price:'1500',
-        sale_price:'1200',
+        price:'5500',
+        sale_price:'2222',
         lable:'Hot',
         sold:90,
-        total:120,
+        total:200,
     },
     {
         title:'>Seeds of Change Organic Quinoa, Brown, & Red Rice',
@@ -62,7 +62,7 @@ export const BestSellers =  [
         sale_price:'1200',
         lable:'Hot',
         sold:90,
-        total:120,
+        total:350,
     },
     {
         title:'Seeds of Change Organic Quinoa, Brown, & Red Rice',
