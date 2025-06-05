@@ -19,7 +19,7 @@ export const popularProducts=[
         unit:'gram',
         price:'3000',
         sale_price:'200',
-        lable:'Hot',
+        label:'Hot',
     },
     {
         title:'Angie’s Boomchickapop Sweet & Salty Kettle Corn',
@@ -41,7 +41,7 @@ export const popularProducts=[
         unit:'gram',
         price:'3000',
         sale_price:'200',
-        lable:'Sale',
+        label:'Sale',
     },
     {
         title:'Blue Diamond Almonds Lightly Salted Vegetables',
@@ -50,7 +50,7 @@ export const popularProducts=[
         rate:'4.0',
         weight:'500',
         unit:'gram',
-      
+        label:'Sale',
     },
     {
         title:'Seeds of Change Organic Quinoa, Brown, & Red Rice',
@@ -60,7 +60,6 @@ export const popularProducts=[
         weight:'500',
         unit:'gram',
         price:'3000',
-        sale_price:'200',
-        lable:'Hot',
+        sale_price:'2700',
     }
 ]

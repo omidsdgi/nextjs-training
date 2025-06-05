@@ -1,3 +1,5 @@
-export * from './logo'
-export * from './icon-box'
+export * from './badge'
 export * from './banner'
+export * from './icon-box'
+export * from './logo'
+export * from './rating'

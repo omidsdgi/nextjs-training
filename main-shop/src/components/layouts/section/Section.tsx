@@ -10,5 +10,6 @@ export function Section({className='',children}: Props) {
        <section className={className}>
            {children}
        </section>
+
     );
 }

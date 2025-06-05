@@ -3,12 +3,12 @@ export const popularFruits=[
         title:'Seeds of Change Organic Quinoa, Brown, & Red Rice',
         image:'/assets/images/products/mango.png',
         category:'Hodo Foods',
-        rate:'4.0',
+        rate:'1.0',
         weight:'500',
         unit:'gram',
         price:'3300',
         sale_price:'2200',
-        lable:'Hot',
+        label:'Hot',
     },
     {
         title:'Blue Diamond Almonds Lightly Salted Vegetables',
@@ -19,7 +19,6 @@ export const popularFruits=[
         unit:'gram',
         price:'4000',
         sale_price:'3500',
-        lable:'Hot',
     },
     {
         title:'Seeds of Change Organic Quinoa, Brown, & Red Rice',
@@ -29,8 +28,7 @@ export const popularFruits=[
         weight:'500',
         unit:'gram',
         price:'3000',
-        sale_price:'200',
-        lable:'Hot',
+        sale_price:'2500',
     },
     {
         title:'All Natural Italian-Style Chicken Meatballs',
@@ -41,7 +39,7 @@ export const popularFruits=[
         unit:'gram',
         price:'1500',
         sale_price:'1200',
-        lable:'Hot',
+        label:'Hot',
     },
     {
         title:'Foster Farms Takeout Crispy Classic Buffalo Wings',
@@ -51,8 +49,7 @@ export const popularFruits=[
         weight:'500',
         unit:'gram',
         price:'3000',
-        sale_price:'200',
-        lable:'Hot',
+        sale_price:'2500',
     },
     {
         title:'Angie’s Boomchickapop Sweet & Salty Kettle Corn',
@@ -63,6 +60,6 @@ export const popularFruits=[
         unit:'gram',
         price:'3000',
         sale_price:'200',
-        lable:'Hot',
+        label:'sale',
     }
 ]
