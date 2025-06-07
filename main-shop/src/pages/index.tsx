@@ -1,5 +1,5 @@
 import {
-    Banner, BestSellerSlider, DealsOfTheDaysSlider,
+    Banner, BestSellerSlider, BottomSlider, DealsOfTheDaysSlider,
     FeaturedCategories, IconBox,
     MiniProductSlider,
     Section,
@@ -26,11 +26,11 @@ export default function Home() {
                 <FeaturedCategories/>
             </Section>
 
-            <Section className={"container mb-[78px]"}>
+            <Section >
                 <MiniProductSlider/>
             </Section>
 
-            <Section className={"container mb-[78px]"}>
+            <Section >
                 <div className="flex justify-between mb-[50px]">
                     <h2 className="text-heading3 text-blue-300">Popular Products</h2>
                     <div className="flex items-center gap-3">
@@ -41,7 +41,7 @@ export default function Home() {
                 <SimpleProductSlider nextEl={'.swiper-nav-right'} prevEl={'.swiper-nav-left'} sliderData={popularProducts}/>
             </Section>
 
-            <Section className={"container mb-[78px]"}>
+            <Section>
                 <div className="flex justify-between mb-[50px]">
                     <h2 className="text-heading3 text-blue-300">Popular Fruits</h2>
                     <div className="flex items-center gap-3">
@@ -52,7 +52,7 @@ export default function Home() {
                 <SimpleProductSlider nextEl={'.swiper-nav-right2'} prevEl={'.swiper-nav-left2'} sliderData={popularFruits}/>
             </Section>
 
-            <Section className={"container mb-[78px]"}>
+            <Section >
                 <div className="flex justify-between mb-[50px]">
                     <h2 className="text-heading6 md:text-heading5 lg:text-heading4 xl:text-heading3 text-blue-300">Best Sellers</h2>
                 </div>
@@ -71,12 +71,16 @@ export default function Home() {
 
             </Section >
 
-            <Section className={"container mb-[78px]"}>
+            <Section >
                 <div className="flex justify-between items-center">
                     <h2 className="text-heading6 md:text-heading5 lg:text-heading4 xl:text-heading3 text-blue-300">Deals Of The Days</h2>
                     <Link className="flex items-center" href="#">All Deals <IconBox icon={"icon-angle-small-right"} size={24}/></Link>
                 </div>
                 <DealsOfTheDaysSlider sliderData={DealsOfTheDaysMock}/>
+            </Section>
+
+            <Section >
+                <BottomSlider/>
             </Section>
 
 

@@ -21,3 +21,6 @@ export const trendingProductsMock=[
         sale_price:298,
     },
 ]
+
+export class TrendingProducts {
+}
