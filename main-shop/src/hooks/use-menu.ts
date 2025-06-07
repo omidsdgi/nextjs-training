@@ -12,7 +12,7 @@ export  function useMenu({position}:Prop) {
 
     let MenuItems: null | PopulateType<MenuItemType> = null
 
-    if (menuData) {
+    if (menuData  && Array.isArray(menuData)) {
         const findMenu = menuData.filter((item: EntityType<MenuType>) => item.attributes.position === position)
         if (findMenu.length > 0) {
             MenuItems = findMenu[0].attributes.menu_items;
