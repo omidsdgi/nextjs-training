@@ -1,7 +1,7 @@
 
 interface Props {
     badge: string;
-    sale_price: number;
+    sale_price?: number;
     price: number;
 }
 

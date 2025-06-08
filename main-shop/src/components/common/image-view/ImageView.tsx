@@ -1,7 +1,7 @@
 import React, {JSX} from 'react';
 import Image from "next/image";
 interface Props {
-    src: string;
+    src?: string |null;
     alt: string;
     width: number;
     height: number;
@@ -9,9 +9,9 @@ interface Props {
 }
 
 export  function ImageView({src,alt,width,height, className=''}:Props ): JSX.Element {
-    const isRemote=src.substring(0,8) ==='/uploads'
+    const imagesrc= src ?(src.startsWith('/uploads') ?'https://nest.navaxcollege.com' + src:src ) :'';
     return (
-        <Image className={className} src={isRemote ? 'https://nest.navaxcollege.com' + src : src} alt={alt} width={width} height={height} />
+        <Image className={className} src={imagesrc} alt={alt} width={width} height={height} />
     );
 }
 
