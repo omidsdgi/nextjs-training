@@ -15,16 +15,21 @@ import {ProductType} from "@/types/api/Product";
 export default function Home() {
     const {data: popularProductsData} = useQuery<ApiResponseType<ProductType>>({
             queryKey: [getAllProductsApiCall.name,'popular_product'],
-            queryFn: () => getAllProductsApiCall({populate: ["thumbnail", "categories"], filters: {is_popular: true}})
+            queryFn: () => getAllProductsApiCall({populate: ["thumbnail", "categories"], filters: {is_popular: {$eq:true}}})
         })
     const {data: popularFruitProductsData} = useQuery<ApiResponseType<ProductType>>({
         queryKey: [getAllProductsApiCall.name,'popular_fruit'],
-        queryFn: () => getAllProductsApiCall({populate: ["thumbnail", "categories"], filters: {is_popular_fruit: true}})
+        queryFn: () => getAllProductsApiCall({populate: ["thumbnail", "categories"], filters: {is_popular_fruit: {$eq:true}}})
     })
 
     const {data: bestSellerProductsData} = useQuery<ApiResponseType<ProductType>>({
         queryKey: [getAllProductsApiCall.name,'best_seller'],
-        queryFn: () => getAllProductsApiCall({populate: ["thumbnail", "categories"], filters: {is_best_seller: true}})
+        queryFn: () => getAllProductsApiCall({populate: ["thumbnail", "categories"], filters: {is_best_seller: {$eq:true}}})
+    })
+
+    const {data: dealsOfDayData} = useQuery<ApiResponseType<ProductType>>({
+        queryKey: [getAllProductsApiCall.name,'deals_of_day'],
+        queryFn: () => getAllProductsApiCall({populate: ["thumbnail", "categories"], filters: {discount_expire_date: {$notNull:true}}})
     })
 
     return(
@@ -86,13 +91,13 @@ export default function Home() {
 
             </Section >
 
-            {/*<Section >*/}
-            {/*    <div className="flex justify-between items-center">*/}
-            {/*        <h2 className="text-heading6 md:text-heading5 lg:text-heading4 xl:text-heading3 text-blue-300">Deals Of The Days</h2>*/}
-            {/*        <Link className="flex items-center" href="#">All Deals <IconBox icon={"icon-angle-small-right"} size={24}/></Link>*/}
-            {/*    </div>*/}
-            {/*    <DealsOfTheDaysSlider sliderData={DealsOfTheDaysMock}/>*/}
-            {/*</Section>*/}
+            <Section >
+                <div className="flex justify-between items-center">
+                    <h2 className="text-heading6 md:text-heading5 lg:text-heading4 xl:text-heading3 text-blue-300">Deals Of The Days</h2>
+                    <Link className="flex items-center" href="#">All Deals <IconBox icon={"icon-angle-small-right"} size={24}/></Link>
+                </div>
+                    {dealsOfDayData && <DealsOfTheDaysSlider sliderData={dealsOfDayData.data}/>}
+            </Section>
 
             {/*<Section >*/}
             {/*    <BottomSlider/>*/}
