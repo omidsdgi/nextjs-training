@@ -1,8 +1,9 @@
 import Link from "next/link";
-import {Logo, Menu, SearchForm} from "@/components";
+import {Logo, Menu, Modal, SearchForm} from "@/components";
 import {IconBox} from "@/components/common/ui/icon-box";
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import {useOverlay} from "@/hooks/use-overlay";
+import {LoginModal} from "@/components/common/auth/LoginModal";
 
 export function Header() {
     const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
@@ -25,8 +26,10 @@ export function Header() {
 
     return (
         <header className="mb-[33px]">
+
+
             <div className="container flex items-center justify-between py-4 md:py-6 xl:py-8">
-                <Logo/>
+
                 <div
                     className="border-2 border-green-150 rounded-[5px] max-w-[700px] w-full mx-[15px] px-[15px] hidden lg:inline-block">
                     <SearchForm inputClassName={"py-[15px]"}/>

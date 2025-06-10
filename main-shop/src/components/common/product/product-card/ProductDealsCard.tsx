@@ -66,7 +66,7 @@ export function ProductDealsCard({data}: Props) {
                             data.attributes.sell_price?
                                 <div>
                                     <span className="text-heading5 text-green-200">${data.attributes.sell_price}</span>
-                                    <span className="text-heading-sm line-through text-gray-500">${data.price}</span>
+                                    <span className="text-heading-sm line-through text-gray-500">${data.attributes.price}</span>
                                 </div>
                                 :
                                 <span className="text-heading5 text-green-200">${data.attributes.price}</span>

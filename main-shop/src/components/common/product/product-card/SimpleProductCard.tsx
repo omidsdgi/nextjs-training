@@ -79,7 +79,7 @@ export function SimpleProductCard({data}: Props) {
                                 </button>
                                 <div
                                     className="input-product__container hidden border-[1px] rounded-[4px] border-green-300 text-green-300 h-[30px] p-[3px]">
-                                    <input type="number" value="1"
+                                    <input type="number"
                                            className="input-product h-[24px] w-[50px] border-0 focus:outline-none text-center"/>
                                     <div className="flex flex-col justify-between">
                                         <IconBox icon={"up icon-angle-small-up"} size={10}/>

@@ -1,8 +1,10 @@
 import {MiniProductCard} from "@/components";
+import {EntityType} from "@/types";
+import {ProductType} from "@/types/api/Product";
 
 interface Props {
     title: string;
-    data:Array<any>;
+    data:Array<EntityType<ProductType>>;
 }
 
 export function ProductVerticalList({title,data}: Props) {
@@ -12,7 +14,7 @@ export function ProductVerticalList({title,data}: Props) {
             <div className="flex flex-col gap-6">
                 {
                     data.map((item, index) => {
-                        return (<MiniProductCard key={index} data={item} />)
+                        return (<MiniProductCard key={index} data={item.attributes} />)
                     })
                 }
 

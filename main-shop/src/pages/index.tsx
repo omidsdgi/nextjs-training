@@ -7,9 +7,11 @@ import {
 } from "@/components";
 import Link from "next/link";
 import {getAllProductsApiCall} from "@/api/config/Product";
-import {useQuery} from "@tanstack/react-query";
+import {dehydrate, QueryClient, useQuery} from "@tanstack/react-query";
 import {ApiResponseType} from "@/types";
 import {ProductType} from "@/types/api/Product";
+import {AppContext} from "next/app";
+import {getMenuApiCall} from "@/api/Menu";
 
 
 export default function Home() {
@@ -99,11 +101,23 @@ export default function Home() {
                     {dealsOfDayData && <DealsOfTheDaysSlider sliderData={dealsOfDayData.data}/>}
             </Section>
 
-            {/*<Section >*/}
-            {/*    <BottomSlider/>*/}
-            {/*</Section>*/}
+            <Section >
+                <BottomSlider/>
+            </Section>
 
 
         </>
     )
+}
+
+export async function getServerSideProps() {
+    const queryClient = new QueryClient();
+
+    await queryClient.prefetchQuery({
+        queryKey:[getMenuApiCall.name],
+        queryFn:getMenuApiCall
+    })
+    return {props:{
+        dehydratedState:dehydrate(queryClient),
+        }}
 }
