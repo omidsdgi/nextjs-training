@@ -1,19 +1,15 @@
-import {ImageView, LoginModal, Logo} from "@/components";
+import {ImageView, LoginModal, Logo, RegisterModal} from "@/components";
 import {IconBox} from "@/components/common/ui/icon-box";
 import Link from "next/link";
 import {useState} from "react";
 
 export function Footer() {
-    const [showModal, setShowModal] = useState(false)
 
-    const onCloseHandler=()=>{
-        setShowModal(false)
-    }
 
     return (
         <footer className="container mb-[68px] relative">
-            {showModal && <LoginModal onClose={onCloseHandler}/>}
-            <div onClick={()=>setShowModal(true)} className="mb-[68px]">
+
+            <div  className="mb-[68px]">
                 <div
                     className="rounded-[6px] md:rounded-[14px] lg:rounded-[30px] bg-hero-pattern bg-[rgba(59,128,126,.2)] bg-opacity-20 bg-cover bg-top bg-no-repeat flex justify-between items-center mt-[38px] relative">
                     <div
@@ -31,7 +27,7 @@ export function Footer() {
             <div className="flex flex-col md:flex-row justify-between flex-wrap gap-[16px] divide-y-2 md:divide-y-0 mb-[70px]">
                 <div className="max-w-[346px]">
                     <Logo/>
-                    <div className="font-lato text-medium mt-4 lg:mt-6">Pellentesque posuere orci lobortis</div>
+                    <div className="font-lato text-medium mt-4 lg:mt-6" >Pellentesque posuere orci lobortis</div>
                     <div className="flex items-start gap-2.5 mt-4 lg:mt-6">
                         <IconBox icon={"icon-marker-brand"}/>
                         <div className="font-lato text-medium text-blue-300"><span

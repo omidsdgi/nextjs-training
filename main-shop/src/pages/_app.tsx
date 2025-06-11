@@ -6,32 +6,32 @@ import "swiper/css/navigation";
 import "react-toastify/dist/ReactToastify.css"
 
 import type { AppProps } from "next/app";
-import {QueryClientProvider, QueryClient, HydrationBoundary} from '@tanstack/react-query'
+import {QueryClientProvider, HydrationBoundary, QueryClient} from '@tanstack/react-query'
 import {Layout} from "@/components";
 import {Lato, Quicksand} from "next/font/google";
 import {ToastContainer} from "react-toastify";
-import  {useState} from "react";
+import {ModalContextProvider} from "@/store/ModalContext";
 
-const quicksand=Quicksand({
-    subsets:['latin']
-})
-const lato=Lato({
-    weight:['100', '300'],
-    subsets:['latin'],
-    variable:'--font-lato'
-})
+const quicksand = Quicksand({
+    subsets: ["latin"],
+});
 
+const lato = Lato({
+    weight: ["100", "300"],
+    subsets: ["latin"],
+    variable: "--font-lato",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
-    const [queryClient]=useState(()=>
-        new QueryClient({
-            defaultOptions:{
-                refetchOnWindowFocus: true,
-                reftchIntervalBackground: true,
-                retry:0,
-                staleTime: 60 * 1000
-            }
-        }))
+    const queryClient = new QueryClient({
+        defaultOptions: {
+            queries: {
+                refetchOnWindowFocus: false,
+                refetchIntervalInBackground: false,
+                retry: 0,
+            },
+        },
+    });
     return(
         <>
             <style jsx>{`
@@ -51,10 +51,12 @@ export default function App({ Component, pageProps }: AppProps) {
                     draggable={false}
                     theme="light"
                 />
+                    <ModalContextProvider>
                     <div id={'portal'}></div>
                 <Layout>
                     <Component {...pageProps} />;
                 </Layout>
+                    </ModalContextProvider>
                 </HydrationBoundary>
             </QueryClientProvider>
         </>
