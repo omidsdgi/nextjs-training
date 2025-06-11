@@ -11,7 +11,7 @@ import {dehydrate, QueryClient, useQuery} from "@tanstack/react-query";
 import {ApiResponseType} from "@/types";
 import {ProductType} from "@/types/api/Product";
 import {AppContext} from "next/app";
-import {getMenuApiCall} from "@/api/Menu";
+import {getMenuApiCall} from "@/api/config/Menu";
 
 
 export default function Home() {

@@ -2,7 +2,7 @@ import {featureCategoriesMock} from "@/mock/featuredCategories";
 import Link from "next/link";
 import {ImageView} from "@/components";
 import {useQuery} from "@tanstack/react-query";
-import {getFeaturedCategory} from "@/api/Categories";
+import {getFeaturedCategory} from "@/api/config/Categories";
 import {ApiResponseType, EntityType} from "@/types";
 import {CategoryType} from "@/types/api/Category";
 

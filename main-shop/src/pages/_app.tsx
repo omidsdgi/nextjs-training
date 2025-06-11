@@ -11,6 +11,7 @@ import {Layout} from "@/components";
 import {Lato, Quicksand} from "next/font/google";
 import {ToastContainer} from "react-toastify";
 import {ModalContextProvider} from "@/store/ModalContext";
+import {AuthContextProvider} from "@/store/AuthContext";
 
 const quicksand = Quicksand({
     subsets: ["latin"],
@@ -41,22 +42,24 @@ export default function App({ Component, pageProps }: AppProps) {
                 }`}</style>
             <QueryClientProvider client={queryClient}>
                 <HydrationBoundary state={pageProps.dehydratedState}>
-                <ToastContainer
-                    position="top-right"
-                    autoClose={10000}
-                    hideProgressBar={false}
-                    closeButton={true}
-                    pauseOnHover={true}
-                    closeOnClick={true}
-                    draggable={false}
-                    theme="light"
-                />
-                    <ModalContextProvider>
-                    <div id={'portal'}></div>
-                <Layout>
-                    <Component {...pageProps} />;
-                </Layout>
-                    </ModalContextProvider>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={10000}
+                        hideProgressBar={false}
+                        closeButton={true}
+                        pauseOnHover={true}
+                        closeOnClick={true}
+                        draggable={false}
+                        theme="light"
+                    />
+                    <AuthContextProvider>
+                        <ModalContextProvider>
+                            <div id={'portal'}></div>
+                            <Layout>
+                                <Component {...pageProps} />;
+                            </Layout>
+                        </ModalContextProvider>
+                    </AuthContextProvider>
                 </HydrationBoundary>
             </QueryClientProvider>
         </>
