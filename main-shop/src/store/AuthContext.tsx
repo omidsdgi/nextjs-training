@@ -6,9 +6,10 @@ interface Props {
 interface AuthContextType {
     isLogin: boolean;
     login:(jwt:string,user:UserType) => void;
+    logout: () => void;
 }
 
-const AuthContext=createContext<AuthContextType>({isLogin:false,login:()=>{}})
+const AuthContext=createContext<AuthContextType>({isLogin:false,login:()=>{},logout:()=>{}})
 
 export const useUser=()=>useContext(AuthContext);
 
@@ -27,6 +28,11 @@ export function AuthContextProvider({children}:Props) {
         setIsLogin(true)
 }
 
-    return <AuthContext.Provider value={{isLogin:isLogin ,login:loginHandler}}>{children}</AuthContext.Provider>
+const logoutHandler=()=> {
+        window.localStorage.removeItem("token");
+        window.localStorage.removeItem("user");
+        setIsLogin(false)
+}
+    return <AuthContext.Provider value={{isLogin:isLogin ,login:loginHandler,logout:logoutHandler}}>{children}</AuthContext.Provider>
 
     }

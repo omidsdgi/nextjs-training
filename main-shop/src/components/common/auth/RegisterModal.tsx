@@ -4,6 +4,8 @@ import {useForm} from "react-hook-form";
 import {useMutation} from "@tanstack/react-query";
 import {registerApiCall} from "@/api/config/Auth";
 import {useUser} from "@/store/AuthContext";
+import {toast} from "react-toastify";
+import {useModal} from "@/store";
 
 interface Props {
     onClose: () => void;
@@ -15,6 +17,7 @@ interface FormData {
 }
 
 export function RegisterModal({onClose}: Props) {
+    const{closeModal}=useModal()
     const{login}=useUser()
 
     const{register,handleSubmit,formState:{errors}}=useForm<FormData>()
@@ -29,6 +32,8 @@ export function RegisterModal({onClose}: Props) {
         mutate.mutate(data,{onSuccess:(response)=>{
             console.log('response',response)
                 login(response.jwt,response.user)
+                toast.success('با موفقیت ثبت نام نمودید')
+                closeModal()
         }})
     }
     
