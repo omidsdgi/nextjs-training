@@ -12,6 +12,7 @@ import {Lato, Quicksand} from "next/font/google";
 import {ToastContainer} from "react-toastify";
 import {ModalContextProvider} from "@/store/ModalContext";
 import {AuthContextProvider} from "@/store/AuthContext";
+import {BasketContextProvider} from "@/store/basketContext";
 
 const quicksand = Quicksand({
     subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     --font-lato:${lato.style.fontFamily},sans-serif;
                 }`}</style>
             <QueryClientProvider client={queryClient}>
+                <BasketContextProvider>
                 <HydrationBoundary state={pageProps.dehydratedState}>
                     <ToastContainer
                         position="top-right"
@@ -61,6 +63,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         </ModalContextProvider>
                     </AuthContextProvider>
                 </HydrationBoundary>
+                </BasketContextProvider>
             </QueryClientProvider>
         </>
     )
