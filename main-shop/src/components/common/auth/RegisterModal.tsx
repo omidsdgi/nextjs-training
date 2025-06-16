@@ -6,6 +6,7 @@ import {registerApiCall} from "@/api/config/Auth";
 import {useUser} from "@/store/AuthContext";
 import {toast} from "react-toastify";
 import {useModal} from "@/store";
+import {useBasket} from "@/hooks/use-basket";
 
 interface Props {
     onClose: () => void;
@@ -19,24 +20,25 @@ interface FormData {
 export function RegisterModal({onClose}: Props) {
     const{closeModal}=useModal()
     const{login}=useUser()
-
+    const {uui2user}=useBasket()
     const{register,handleSubmit,formState:{errors}}=useForm<FormData>()
 
     const mutate=useMutation({mutationFn:registerApiCall})
 
 
-    
+
     const onSubmit = (data:FormData) => {
         console.log("data", data)
 
         mutate.mutate(data,{onSuccess:(response)=>{
-            console.log('response',response)
+                console.log('response',response)
                 login(response.jwt,response.user)
                 toast.success('با موفقیت ثبت نام نمودید')
                 closeModal()
-        }})
+                uui2user()
+            }})
     }
-    
+
     return  (
         <Modal title={'Register'} closeModal={onClose}>
             <form onSubmit={handleSubmit(onSubmit)} className={'px-4 md:px-20'}>
@@ -46,7 +48,7 @@ export function RegisterModal({onClose}: Props) {
 
                 <button className={'mt-2 bg-green-400 font-bold py-2 px-4 rounded'}>Submit</button>
             </form>
-            
+
         </Modal>
     );
 }

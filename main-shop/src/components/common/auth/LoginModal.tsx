@@ -5,6 +5,7 @@ import {toast} from "react-toastify";
 import {loginApiCall} from "@/api/config/Auth";
 import {useUser} from "@/store/AuthContext";
 import {useForm} from "react-hook-form";
+import {useBasket} from "@/hooks/use-basket";
 
 interface Props {
     onClose: () => void;
@@ -18,7 +19,7 @@ interface FormData{
 export function LoginModal({onClose}: Props) {
     const {openModal,closeModal} = useModal();
 
-
+    const{uui2user}=useBasket()
     const {login}=useUser()
     const {register,handleSubmit,formState:{errors}}=useForm<FormData>()
 
@@ -29,6 +30,7 @@ export function LoginModal({onClose}: Props) {
                 login(response.jwt, response.user)
                 toast.success('با موفقیت وارد حساب کاربری خود شدید')
                 closeModal()
+                uui2user()
             }});
     }
 

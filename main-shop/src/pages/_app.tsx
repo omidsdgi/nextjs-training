@@ -46,13 +46,14 @@ export default function App({ Component, pageProps }: AppProps) {
                 <HydrationBoundary state={pageProps.dehydratedState}>
                     <ToastContainer
                         position="top-right"
-                        autoClose={10000}
+                        autoClose={3000}
                         hideProgressBar={false}
                         closeButton={true}
                         pauseOnHover={true}
                         closeOnClick={true}
                         draggable={false}
                         theme="light"
+
                     />
                     <AuthContextProvider>
                         <ModalContextProvider>

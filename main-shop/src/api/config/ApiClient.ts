@@ -5,6 +5,13 @@ const apiClient=axios.create({
     baseURL: 'https://nest.navaxcollege.com/api',
     timeout: 120000,
 })
+apiClient.interceptors.request.use(function (request){
+    const token=window.localStorage.getItem("token");
+    if (token){
+        request.headers.Authorization = `Bearer ${token}`;
+    }
+    return request;
+})
 
 apiClient.interceptors.response.use(function (response){
         return response.data
